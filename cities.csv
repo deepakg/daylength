@@ -112,3 +112,216 @@ rank,city,country,population,latitude,longitude,timezone
 111,Glasgow,Scotland,632350,55.8642,-4.2518,Europe/London
 112,Edinburgh,Scotland,524930,55.9533,-3.1883,Europe/London
 113,Helsinki,Finland,658864,60.1699,24.9384,Europe/Helsinki
+114,Amsterdam,Netherlands,872757,52.3676,4.9041,Europe/Amsterdam
+115,Brussels,Belgium,2065284,50.8503,4.3517,Europe/Brussels
+116,Copenhagen,Denmark,799033,55.6761,12.5683,Europe/Copenhagen
+117,Bern,Switzerland,133883,46.9480,7.4474,Europe/Zurich
+118,Warsaw,Poland,1783321,52.2297,21.0122,Europe/Warsaw
+119,Prague,Czech Republic,1324277,50.0755,14.4378,Europe/Prague
+120,Budapest,Hungary,1756000,47.4979,19.0402,Europe/Budapest
+121,Bucharest,Romania,1883425,44.4268,26.1025,Europe/Bucharest
+122,Sofia,Bulgaria,1307376,42.6977,23.3219,Europe/Sofia
+123,Belgrade,Serbia,1688667,44.7866,20.4489,Europe/Belgrade
+124,Zagreb,Croatia,769944,45.8150,15.9819,Europe/Zagreb
+125,Ljubljana,Slovenia,295504,46.0569,14.5058,Europe/Ljubljana
+126,Bratislava,Slovakia,432864,48.1486,17.1077,Europe/Bratislava
+127,Kyiv,Ukraine,2967360,50.4501,30.5234,Europe/Kiev
+128,Chisinau,Moldova,679726,47.0105,28.8638,Europe/Chisinau
+129,Riga,Latvia,632614,56.9496,24.1052,Europe/Riga
+130,Tallinn,Estonia,437619,59.4370,24.7536,Europe/Tallinn
+131,Vilnius,Lithuania,544386,54.6872,25.2797,Europe/Vilnius
+132,Minsk,Belarus,1995471,53.9045,27.5615,Europe/Minsk
+133,Nur-Sultan,Kazakhstan,1002874,51.1694,71.4491,Asia/Almaty
+134,Bishkek,Kyrgyzstan,1012500,42.8746,74.5698,Asia/Bishkek
+135,Dushanbe,Tajikistan,863400,38.5358,68.7791,Asia/Dushanbe
+136,Ashgabat,Turkmenistan,1031992,37.9601,58.3261,Asia/Ashgabat
+137,Tashkent,Uzbekistan,2464900,41.2995,69.2401,Asia/Tashkent
+138,Yerevan,Armenia,1075800,40.1772,44.5034,Asia/Yerevan
+139,Tbilisi,Georgia,1114600,41.7151,44.8271,Asia/Tbilisi
+140,Baku,Azerbaijan,2300513,40.4093,49.8671,Asia/Baku
+141,Kabul,Afghanistan,4601789,34.5553,69.2075,Asia/Kabul
+142,Kathmandu,Nepal,1442271,27.7172,85.3240,Asia/Kathmandu
+143,Thimphu,Bhutan,115551,27.4728,89.6392,Asia/Thimphu
+144,Naypyidaw,Myanmar,1160242,19.7633,96.0785,Asia/Yangon
+145,Vientiane,Laos,948477,17.9757,102.6331,Asia/Vientiane
+146,Phnom Penh,Cambodia,2129371,11.5564,104.9282,Asia/Phnom_Penh
+147,Hanoi,Vietnam,4678000,21.0285,105.8542,Asia/Ho_Chi_Minh
+148,Dili,Timor-Leste,234331,8.5586,125.5736,Asia/Dili
+149,Port Moresby,Papua New Guinea,364125,-9.4438,147.1803,Pacific/Port_Moresby
+150,Wellington,New Zealand,212700,-41.2866,174.7756,Pacific/Auckland
+151,Suva,Fiji,93970,-18.1416,178.4419,Pacific/Fiji
+152,Addis Ababa,Ethiopia,3352000,9.0320,38.7492,Africa/Addis_Ababa
+153,Nairobi,Kenya,4397073,-1.2921,36.8219,Africa/Nairobi
+154,Khartoum,Sudan,5274321,15.5007,32.5599,Africa/Khartoum
+155,Juba,South Sudan,403000,4.8594,31.5713,Africa/Juba
+156,Mogadishu,Somalia,2587183,2.0469,45.3182,Africa/Mogadishu
+157,Rabat,Morocco,577827,34.0209,-6.8416,Africa/Casablanca
+158,Tunis,Tunisia,638845,36.8065,10.1815,Africa/Tunis
+159,Tripoli,Libya,1165000,32.8872,13.1913,Africa/Tripoli
+160,Algiers,Algeria,3415811,36.7538,3.0588,Africa/Algiers
+161,Bamako,Mali,2009109,12.6392,-8.0029,Africa/Bamako
+162,Dakar,Senegal,3137196,14.7167,-17.4677,Africa/Dakar
+163,Conakry,Guinea,1660973,9.6412,-13.5784,Africa/Conakry
+164,Freetown,Sierra Leone,1055964,8.4847,-13.2343,Africa/Freetown
+165,Monrovia,Liberia,1010970,6.3004,-10.7969,Africa/Monrovia
+166,Yamoussoukro,Ivory Coast,355573,6.8276,-5.2893,Africa/Abidjan
+167,Accra,Ghana,2514000,5.6037,-0.1870,Africa/Accra
+168,Ouagadougou,Burkina Faso,2200000,12.3714,-1.5197,Africa/Ouagadougou
+169,Niamey,Niger,1026848,13.5117,2.1251,Africa/Niamey
+170,N'Djamena,Chad,1092066,12.1348,15.0557,Africa/Ndjamena
+171,Bangui,Central African Republic,889231,4.3947,18.5582,Africa/Bangui
+172,Yaounde,Cameroon,2765568,3.8480,11.5021,Africa/Douala
+173,Libreville,Gabon,703940,0.4162,9.4673,Africa/Libreville
+174,Brazzaville,Republic of Congo,1696392,-4.2634,15.2429,Africa/Brazzaville
+175,Luanda,Angola,2571861,-8.8147,13.2302,Africa/Luanda
+176,Windhoek,Namibia,431000,-22.5609,17.0658,Africa/Windhoek
+177,Gaborone,Botswana,231592,-24.6282,25.9231,Africa/Gaborone
+178,Harare,Zimbabwe,1485231,-17.8252,31.0335,Africa/Harare
+179,Lusaka,Zambia,2526155,-15.3875,28.3228,Africa/Lusaka
+180,Antananarivo,Madagascar,1391433,-18.8792,47.5079,Indian/Antananarivo
+181,Port Louis,Mauritius,149194,-20.1609,57.5012,Indian/Mauritius
+182,Victoria,Seychelles,26450,-4.6191,55.4513,Indian/Mahe
+183,Moroni,Comoros,111326,-11.7172,43.2473,Indian/Comoro
+184,Managua,Nicaragua,1048134,12.1149,-86.2362,America/Managua
+185,San Jose,Costa Rica,1543000,9.9281,-84.0907,America/Costa_Rica
+186,Panama City,Panama,880691,8.9824,-79.5199,America/Panama
+187,San Salvador,El Salvador,567698,13.6929,-89.2182,America/El_Salvador
+188,Tegucigalpa,Honduras,1157509,14.0723,-87.1921,America/Tegucigalpa
+189,Guatemala City,Guatemala,2934841,14.6349,-90.5069,America/Guatemala
+190,Belmopan,Belize,20621,17.2514,-88.7700,America/Belize
+191,Kingston,Jamaica,937700,18.0179,-76.8099,America/Jamaica
+192,Port-au-Prince,Haiti,1275000,18.5944,-72.3074,America/Port-au-Prince
+193,Nassau,Bahamas,280000,25.0343,-77.3963,America/Nassau
+194,Havana,Cuba,2130081,23.1136,-82.3666,America/Havana
+195,Asuncion,Paraguay,525294,-25.2867,-57.3333,America/Asuncion
+196,Montevideo,Uruguay,1381000,-34.9011,-56.1915,America/Montevideo
+197,La Paz,Bolivia,766468,-16.4897,-68.1193,America/La_Paz
+198,Quito,Ecuador,2011388,-0.1807,-78.4678,America/Guayaquil
+199,Georgetown,Guyana,235017,6.8013,-58.1553,America/Guyana
+200,Paramaribo,Suriname,241000,5.8520,-55.2038,America/Paramaribo
+201,Cayenne,French Guiana,57709,4.9371,-52.3258,America/Cayenne
+202,Toamasina,Madagascar,274667,-18.1492,49.4023,Indian/Antananarivo
+203,Antsirabe,Madagascar,238478,-19.8686,47.0333,Indian/Antananarivo
+204,Fianarantsoa,Madagascar,167227,-21.4333,47.0833,Indian/Antananarivo
+205,Mahajanga,Madagascar,154657,-15.7167,46.3167,Indian/Antananarivo
+206,Toliara,Madagascar,168095,-23.3500,43.6667,Indian/Antananarivo
+207,Mombasa,Kenya,1208333,-4.0435,39.6682,Africa/Nairobi
+208,Dar es Salaam,Tanzania,6701650,-6.7924,39.2083,Africa/Dar_es_Salaam
+209,Dodoma,Tanzania,410956,-6.1722,35.7395,Africa/Dar_es_Salaam
+210,Zanzibar City,Tanzania,403658,-6.1667,39.2000,Africa/Dar_es_Salaam
+211,Kampala,Uganda,1680600,0.3476,32.5825,Africa/Kampala
+212,Bujumbura,Burundi,331700,-3.3614,29.3599,Africa/Bujumbura
+213,Kigali,Rwanda,745261,-1.9537,30.0606,Africa/Kigali
+214,Maputo,Mozambique,1088449,-25.9692,32.5732,Africa/Maputo
+215,Matola,Mozambique,675422,-25.9625,32.4597,Africa/Maputo
+216,Beira,Mozambique,530604,-19.8436,34.8389,Africa/Maputo
+217,Nampula,Mozambique,388526,-15.1165,39.2666,Africa/Maputo
+218,Lilongwe,Malawi,989318,-13.9669,33.7873,Africa/Blantyre
+219,Blantyre,Malawi,584877,-15.7861,35.0058,Africa/Blantyre
+220,Asmara,Eritrea,963000,15.3229,38.9251,Africa/Asmara
+221,Djibouti City,Djibouti,624638,11.5886,43.1457,Africa/Djibouti
+222,Port Said,Egypt,749371,31.2567,32.2989,Africa/Cairo
+223,Lubumbashi,DR Congo,2281690,-11.6876,27.5026,Africa/Lubumbashi
+224,Mbuji-Mayi,DR Congo,2525263,-6.1209,23.5967,Africa/Lubumbashi
+225,Kananga,DR Congo,1971704,-5.8961,22.4018,Africa/Lubumbashi
+226,Kisangani,DR Congo,1602144,-0.5153,25.1911,Africa/Lubumbashi
+227,Pointe-Noire,Republic of Congo,969066,-4.7889,11.8653,Africa/Brazzaville
+228,Durban,South Africa,3120282,-29.8587,31.0218,Africa/Johannesburg
+229,Port Elizabeth,South Africa,967677,-33.9608,25.6022,Africa/Johannesburg
+230,Pretoria,South Africa,741651,-25.7479,28.2293,Africa/Johannesburg
+231,Benghazi,Libya,631555,32.1167,20.0667,Africa/Tripoli
+232,Casablanca,Morocco,3359818,33.5731,-7.5898,Africa/Casablanca
+233,Fez,Morocco,1112072,34.0333,-5.0000,Africa/Casablanca
+234,Marrakesh,Morocco,928850,31.6295,-7.9811,Africa/Casablanca
+235,Tangier,Morocco,947952,35.7673,-5.7994,Africa/Casablanca
+236,Abidjan,Ivory Coast,4765000,5.3600,-4.0083,Africa/Abidjan
+237,Bouaké,Ivory Coast,536189,7.6833,-5.0333,Africa/Abidjan
+238,Kumasi,Ghana,3348000,6.6833,-1.6167,Africa/Accra
+239,Tamale,Ghana,562919,9.4008,-0.8393,Africa/Accra
+240,Lomé,Togo,837437,6.1319,1.2228,Africa/Lome
+241,Cotonou,Benin,780000,6.3654,2.4183,Africa/Porto-Novo
+242,Porto-Novo,Benin,267191,6.4969,2.6283,Africa/Porto-Novo
+243,Ibadan,Nigeria,6000000,7.3775,3.9470,Africa/Lagos
+244,Kano,Nigeria,4103000,12.0000,8.5167,Africa/Lagos
+245,Abuja,Nigeria,3464000,9.0667,7.4833,Africa/Lagos
+rank,city,country,population,latitude,longitude,timezone
+246,Dubai,UAE,3492957,25.2048,55.2708,Asia/Dubai
+247,Abu Dhabi,UAE,1807000,24.4539,54.3773,Asia/Dubai
+248,Sharjah,UAE,1768000,25.3573,55.3919,Asia/Dubai
+249,Doha,Qatar,2382000,25.2867,51.5333,Asia/Qatar
+250,Kuwait City,Kuwait,3000000,29.3759,47.9774,Asia/Kuwait
+251,Manama,Bahrain,565000,26.2285,50.5860,Asia/Bahrain
+252,Muscat,Oman,1720000,23.5859,58.4059,Asia/Muscat
+253,Salalah,Oman,340000,17.0151,54.0924,Asia/Muscat
+254,Mecca,Saudi Arabia,2042000,21.3891,39.8579,Asia/Riyadh
+255,Medina,Saudi Arabia,1488000,24.4686,39.6142,Asia/Riyadh
+256,Jeddah,Saudi Arabia,4697000,21.5433,39.1728,Asia/Riyadh
+257,Dammam,Saudi Arabia,1252000,26.4207,50.0888,Asia/Riyadh
+258,Damascus,Syria,2392000,33.5138,36.2765,Asia/Damascus
+259,Aleppo,Syria,1834093,36.2021,37.1343,Asia/Damascus
+260,Homs,Syria,1033000,34.7324,36.7137,Asia/Damascus
+261,Amman,Jordan,4061000,31.9454,35.9284,Asia/Amman
+262,Irbid,Jordan,1911600,32.5556,35.8500,Asia/Amman
+263,Zarqa,Jordan,1368000,32.0728,36.0879,Asia/Amman
+264,Beirut,Lebanon,2424425,33.8938,35.5018,Asia/Beirut
+265,Tripoli,Lebanon,730000,34.4333,35.8500,Asia/Beirut
+266,Erbil,Iraq,2009000,36.1911,44.0093,Asia/Baghdad
+267,Basra,Iraq,2750000,30.5085,47.7804,Asia/Baghdad
+268,Mosul,Iraq,1683000,36.3350,43.1189,Asia/Baghdad
+269,Isfahan,Iran,2243000,32.6546,51.6680,Asia/Tehran
+270,Mashhad,Iran,3372000,36.2972,59.6067,Asia/Tehran
+271,Tabriz,Iran,1775000,38.0800,46.2919,Asia/Tehran
+272,Shiraz,Iran,1869001,29.5917,52.5836,Asia/Tehran
+273,Sanaa,Yemen,2957000,15.3694,44.1910,Asia/Aden
+274,Aden,Yemen,863000,12.7797,45.0095,Asia/Aden
+275,Haifa,Israel,285316,32.7940,34.9896,Asia/Jerusalem
+276,Jerusalem,Israel,936425,31.7683,35.2137,Asia/Jerusalem
+277,Gaza City,Palestine,590481,31.5017,34.4668,Asia/Gaza
+278,Ramallah,Palestine,38998,31.8996,35.2042,Asia/Hebron
+279,Bursa,Turkey,2994521,40.1885,29.0610,Europe/Istanbul
+280,Izmir,Turkey,4367251,38.4189,27.1287,Europe/Istanbul
+281,Antalya,Turkey,2619832,36.8841,30.7056,Europe/Istanbul
+282,Gaziantep,Turkey,2028563,37.0662,37.3833,Europe/Istanbul
+283,Lucknow,India,3382000,26.8467,80.9462,Asia/Kolkata
+284,Kanpur,India,3027000,26.4499,80.3319,Asia/Kolkata
+285,Jaipur,India,3046000,26.9124,75.7873,Asia/Kolkata
+286,Nagpur,India,2893000,21.1458,79.0882,Asia/Kolkata
+287,Indore,India,2570000,22.7196,75.8577,Asia/Kolkata
+288,Bhopal,India,2390000,23.2599,77.4126,Asia/Kolkata
+289,Patna,India,2158000,25.5941,85.1376,Asia/Kolkata
+290,Vadodara,India,2065000,22.3072,73.1812,Asia/Kolkata
+291,Ghaziabad,India,2381000,28.6692,77.4538,Asia/Kolkata
+292,Ludhiana,India,1649000,30.9010,75.8573,Asia/Kolkata
+293,Agra,India,1585000,27.1767,78.0081,Asia/Kolkata
+294,Nashik,India,1486000,19.9975,73.7898,Asia/Kolkata
+295,Faridabad,India,1404000,28.4089,77.3178,Asia/Kolkata
+296,Meerut,India,1305000,28.9845,77.7064,Asia/Kolkata
+297,Varanasi,India,1198000,25.3176,82.9739,Asia/Kolkata
+298,Thiruvananthapuram,India,1687406,8.5241,76.9366,Asia/Kolkata
+299,Kochi,India,2119724,9.9312,76.2673,Asia/Kolkata
+300,Lahore,Pakistan,12642000,31.5204,74.3587,Asia/Karachi
+301,Faisalabad,Pakistan,3460000,31.4504,73.1350,Asia/Karachi
+302,Rawalpindi,Pakistan,2098000,33.6007,73.0679,Asia/Karachi
+303,Multan,Pakistan,1871000,30.1575,71.5249,Asia/Karachi
+304,Hyderabad,Pakistan,1734000,25.3960,68.3578,Asia/Karachi
+305,Peshawar,Pakistan,1970000,34.0151,71.5249,Asia/Karachi
+306,Islamabad,Pakistan,1014000,33.6844,73.0479,Asia/Karachi
+307,Quetta,Pakistan,1001000,30.1798,66.9750,Asia/Karachi
+308,Chittagong,Bangladesh,5200000,22.3569,91.7832,Asia/Dhaka
+309,Khulna,Bangladesh,1800000,22.8456,89.5403,Asia/Dhaka
+310,Rajshahi,Bangladesh,853000,24.3745,88.6042,Asia/Dhaka
+311,Sylhet,Bangladesh,826000,24.8949,91.8687,Asia/Dhaka
+312,Barisal,Bangladesh,509000,22.7010,90.3535,Asia/Dhaka
+313,Pokhara,Nepal,518000,28.2096,83.9856,Asia/Kathmandu
+314,Lalitpur,Nepal,284000,27.6824,85.3241,Asia/Kathmandu
+315,Bharatpur,Nepal,280000,27.6833,84.4333,Asia/Kathmandu
+316,Kandy,Sri Lanka,125000,7.2906,80.6337,Asia/Colombo
+317,Galle,Sri Lanka,93000,6.0535,80.2210,Asia/Colombo
+318,Jaffna,Sri Lanka,88000,9.6615,80.0255,Asia/Colombo
+319,Dehradun,India,714223,30.3165,78.0322,Asia/Kolkata
+320,Amritsar,India,1132383,31.6340,74.8723,Asia/Kolkata
+321,Chandigarh,India,1055450,30.7333,76.7794,Asia/Kolkata
+322,Guwahati,India,957352,26.1445,91.7362,Asia/Kolkata
+323,Thimphu,Bhutan,115000,27.4728,89.6392,Asia/Thimphu
+324,Paro,Bhutan,15000,27.4287,89.4164,Asia/Thimphu
+325,Male,Maldives,133412,4.1755,73.5093,Indian/Maldives
