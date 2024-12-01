@@ -251,6 +251,13 @@
          }
 
 
+	 // Helper function to convert decimal hours to hours and minutes format
+	 function formatTimeHoursMinutes(decimalHours) {
+	     const hours = Math.floor(decimalHours);
+	     const minutes = Math.round((decimalHours - hours) * 60);
+	     return `${hours} hrs ${minutes} mins`;
+	 }
+
 	 // Function to highlight a marker
 	 function highlightMarker(cityIdentifier) {
 	     if (markers[cityIdentifier]) {
@@ -558,7 +565,7 @@
 		      tooltip
 			  .html(`<strong>${dataPoint.city}, ${dataPoint.country}</strong><br/>
                    Date: ${dataPoint.date.toLocaleDateString()}<br/>
-                   Daylight: ${dataPoint.hours.toFixed(1)} hours`)
+                   Daylight: ${formatTimeHoursMinutes(dataPoint.hours)}`)
 			  .style("left", `${event.clientX + 10}px`)
 			  .style("top", `${event.clientY - 28}px`);
 		  })
@@ -595,7 +602,7 @@
 			d3.select(this).attr("r", 6);
 			tooltip
 			    .html(`<strong>${d.city}, ${d.country}</strong><br/>
-                           Today's daylight: ${hours.toFixed(1)} hours`)
+                       Today's daylight: ${formatTimeHoursMinutes(hours)}`)
 			    .style("opacity", 1)
 			    .style("left", (event.pageX + 10) + "px")
 			    .style("top", (event.pageY - 10) + "px");
