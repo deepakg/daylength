@@ -1,171 +1,171 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>City Daylight Duration</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Interactive visualization tool comparing daylight hours across major cities throughout the year. Explore how daylight patterns change across different latitudes and seasons.">
+    <head>
+	<meta charset="UTF-8">
+	<title>City Daylight Duration</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Interactive visualization tool comparing daylight hours across major cities throughout the year. Explore how daylight patterns change across different latitudes and seasons.">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.deepakg.com/_assets/daylight-map.html">
-    <meta property="og:title" content="Global Daylight Explorer">
-    <meta property="og:description" content="Compare daylight hours across major cities worldwide with this interactive visualization tool. See how daylight patterns change throughout the year.">
-    <meta property="og:image" content="https://www.deepakg.com/_assets/daylight-preview@2x.png">
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.deepakg.com/_assets/daylight-map.html">
+	<meta property="og:title" content="Global Daylight Explorer">
+	<meta property="og:description" content="Compare daylight hours across major cities worldwide with this interactive visualization tool. See how daylight patterns change throughout the year.">
+	<meta property="og:image" content="https://www.deepakg.com/_assets/daylight-preview@2x.png">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.deepakg.com/_assets/daylight-map.html">
-    <meta name="twitter:title" content="Global Daylight Explorer">
-    <meta name="twitter:description" content="Compare daylight hours across major cities worldwide with this interactive visualization tool. See how daylight patterns change throughout the year.">
-    <meta name="twitter:image" content="https://www.deepakg.com/_assets/daylight-preview@2x.png">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="https://www.deepakg.com/_assets/daylight-map.html">
+	<meta name="twitter:title" content="Global Daylight Explorer">
+	<meta name="twitter:description" content="Compare daylight hours across major cities worldwide with this interactive visualization tool. See how daylight patterns change throughout the year.">
+	<meta name="twitter:image" content="https://www.deepakg.com/_assets/daylight-preview@2x.png">
 
-    <!-- Other meta tags -->
-    <meta name="author" content="Deepak Gulati">
-    <meta name="theme-color" content="#2B83BA">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-    <style>
-     :root {
-            --primary-color: #2B83BA;
-            --accent-color: #FF4444;
-            --text-color: #1A1A1A;
-            --background-color: #FFFFFF;
-            --surface-color: #F5F7FA;
-            --border-color: #E2E8F0;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
+	<!-- Other meta tags -->
+	<meta name="author" content="Deepak Gulati">
+	<meta name="theme-color" content="#2B83BA">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+	<style>
+	 :root {
+             --primary-color: #2B83BA;
+             --accent-color: #FF4444;
+             --text-color: #1A1A1A;
+             --background-color: #FFFFFF;
+             --surface-color: #F5F7FA;
+             --border-color: #E2E8F0;
+             --shadow-color: rgba(0, 0, 0, 0.1);
+         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+         * {
+             box-sizing: border-box;
+             margin: 0;
+             padding: 0;
+         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--background-color);
-            padding: 1rem;
-        }
+         body {
+             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+             color: var(--text-color);
+             line-height: 1.6;
+             background-color: var(--background-color);
+             padding: 1rem;
+         }
 
-        .header {
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            text-align: center;
-        }
+         .header {
+             max-width: 800px;
+             margin: 0 auto 1.5rem;
+             text-align: center;
+         }
 
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
+         h1 {
+             font-size: 2rem;
+             font-weight: 700;
+             margin-bottom: 0.5rem;
+             color: var(--text-color);
+         }
 
-        .subtitle {
-            font-size: 1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+         .subtitle {
+             font-size: 1rem;
+             color: #666;
+             max-width: 600px;
+             margin: 0 auto;
+         }
 
-	.container {
-            display: flex;
-            gap: 1.5rem;
-            width: 100%;
-            margin: 0 auto;
-            background: var(--surface-color);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px var(--shadow-color);
-	}
+	 .container {
+             display: flex;
+             gap: 1.5rem;
+             width: 100%;
+             margin: 0 auto;
+             background: var(--surface-color);
+             padding: 1.5rem;
+             border-radius: 1rem;
+             box-shadow: 0 4px 6px var(--shadow-color);
+	 }
 
-	.map-container {
-            flex: 1.2;  /* Give map slightly more space */
-            height: 500px;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            /*box-shadow: 0 2px 4px var(--shadow-color);*/
-	}
+	 .map-container {
+             flex: 1.2;  /* Give map slightly more space */
+             height: 500px;
+             border-radius: 0.75rem;
+             overflow: hidden;
+             /*box-shadow: 0 2px 4px var(--shadow-color);*/
+	 }
 
-	.chart-container {
-            flex: 1;
-            background: var(--background-color);
-            padding: 1rem;
-            border-radius: 0.75rem;
-            /*box-shadow: 0 2px 4px var(--shadow-color);*/
-	}
+	 .chart-container {
+             flex: 1;
+             background: var(--background-color);
+             padding: 1rem;
+             border-radius: 0.75rem;
+             /*box-shadow: 0 2px 4px var(--shadow-color);*/
+	 }
 
-        .search-container {
-            max-width: 400px;
-            margin: 0 auto 1rem;
-            position: relative;
-        }
+         .search-container {
+             max-width: 400px;
+             margin: 0 auto 1rem;
+             position: relative;
+         }
 
-        #searchInput {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            font-size: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 0.75rem;
-            background: var(--background-color);
-            transition: all 0.2s ease;
-        }
+         #searchInput {
+             width: 100%;
+             padding: 0.75rem 1rem;
+             font-size: 1rem;
+             border: 2px solid var(--border-color);
+             border-radius: 0.75rem;
+             background: var(--background-color);
+             transition: all 0.2s ease;
+         }
 
-        #searchInput:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(43, 131, 186, 0.1);
-        }
+         #searchInput:focus {
+             outline: none;
+             border-color: var(--primary-color);
+             box-shadow: 0 0 0 3px rgba(43, 131, 186, 0.1);
+         }
 
-        #suggestions {
-            position: absolute;
-            width: 100%;
-            max-height: 200px;
-            overflow-y: auto;
-            background: var(--background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 0.75rem;
-            margin-top: 0.5rem;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            z-index: 1000;
-            display: none;
-        }
+         #suggestions {
+             position: absolute;
+             width: 100%;
+             max-height: 200px;
+             overflow-y: auto;
+             background: var(--background-color);
+             border: 1px solid var(--border-color);
+             border-radius: 0.75rem;
+             margin-top: 0.5rem;
+             box-shadow: 0 4px 6px var(--shadow-color);
+             z-index: 1000;
+             display: none;
+         }
 
-        .suggestion {
-            padding: 0.75rem 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
+         .suggestion {
+             padding: 0.75rem 1rem;
+             cursor: pointer;
+             transition: background-color 0.2s ease;
+         }
 
-        .suggestion:hover, .suggestion.selected {
-            background: var(--surface-color);
-        }
+         .suggestion:hover, .suggestion.selected {
+             background: var(--surface-color);
+         }
 
-        .tooltip {
-            position: fixed;
-            background: var(--background-color);
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            font-size: 0.875rem;
-            max-width: 200px;
-            pointer-events: none;
-            z-index: 1000;
-        }
+         .tooltip {
+             position: fixed;
+             background: var(--background-color);
+             padding: 0.75rem;
+             border-radius: 0.5rem;
+             box-shadow: 0 4px 6px var(--shadow-color);
+             font-size: 0.875rem;
+             max-width: 200px;
+             pointer-events: none;
+             z-index: 1000;
+         }
 
-        .line {
-            fill: none;
-            stroke-width: 2;
-            transition: stroke-width 0.2s ease;
-        }
+         .line {
+             fill: none;
+             stroke-width: 2;
+             transition: stroke-width 0.2s ease;
+         }
 
-        .today-marker {
-            transition: all 0.2s ease;
-        }
+         .today-marker {
+             transition: all 0.2s ease;
+         }
 
 	 .legend {
              font-size: 0.875rem;
@@ -191,627 +191,626 @@
              color: var(--accent-color);
 	 }
 
-        .axis-label {
-            font-size: 0.875rem;
-            fill: #666;
-        }
+         .axis-label {
+             font-size: 0.875rem;
+             fill: #666;
+         }
 
-        #loading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--background-color);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            text-align: center;
-            z-index: 2000;
-        }
-
-
-    </style>
-</head>
-<body>
-  <div id="loading">
-    <div>Loading global cities data...</div>
-  </div>
-
-  <header class="header">
-    <h1>Global Daylight Explorer</h1>
-    <p class="subtitle">Compare daylight hours throughout the year across major cities worldwide</p>
-  </header>
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search for a city...">
-    <div id="suggestions"></div>
-  </div>
-  <div class="container">
-    <div class="map-container" id="map"></div>
-    <div class="chart-container" id="chart"></div>
-  </div>
-
-    <script>
-        // Global variables
-        let cities = [];
-        let selectedCities = [];
-        let hiddenCities = new Set();
-        let map;
-        let markers = {};
-
-        // Setup the chart dimensions
-        const margin = {top: 20, right: 138, bottom: 40, left: 50};
-        const width = 800 - margin.left - margin.right;
-        const height = 460 - margin.top - margin.bottom;
-
-        // Initialize Leaflet map
-        function initMap() {
-            map = L.map('map').setView([20, 0], 2);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-        }
+         #loading {
+             position: fixed;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             background: var(--background-color);
+             padding: 1.5rem;
+             border-radius: 1rem;
+             box-shadow: 0 4px 6px var(--shadow-color);
+             text-align: center;
+             z-index: 2000;
+         }
 
 
-       // Function to highlight a marker
-        function highlightMarker(cityName) {
-	    if (markers[cityName]) {
-		const marker = markers[cityName];
-		const highlightColor = '#FF4444';  // Highlight color (red)
-		const svgIcon = `
+	</style>
+    </head>
+    <body>
+	<div id="loading">
+	    <div>Loading global cities data...</div>
+	</div>
+
+	<header class="header">
+	    <h1>Global Daylight Explorer</h1>
+	    <p class="subtitle">Compare daylight hours throughout the year across major cities worldwide</p>
+	</header>
+	<div class="search-container">
+	    <input type="text" id="searchInput" placeholder="Search for a city...">
+	    <div id="suggestions"></div>
+	</div>
+	<div class="container">
+	    <div class="map-container" id="map"></div>
+	    <div class="chart-container" id="chart"></div>
+	</div>
+	<script>
+	 // Global variables
+	 let cities = [];
+	 let selectedCities = [];
+	 let hiddenCities = new Set();
+	 let map;
+	 let markers = {};
+
+	 // Setup the chart dimensions
+	 const margin = {top: 20, right: 138, bottom: 40, left: 50};
+	 const width = 800 - margin.left - margin.right;
+	 const height = 460 - margin.top - margin.bottom;
+
+	 // Initialize Leaflet map
+	 function initMap() {
+	     map = L.map('map').setView([20, 0], 2);
+	     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                 attribution: '© OpenStreetMap contributors'
+             }).addTo(map);
+         }
+
+
+	 // Function to highlight a marker
+	 function highlightMarker(cityIdentifier) {
+	     if (markers[cityIdentifier]) {
+		 const marker = markers[cityIdentifier];
+		 const highlightColor = '#FF4444';
+		 const svgIcon = `
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="42" height="42">
                 <path fill="${highlightColor}" d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
             </svg>`;
 
-		const highlightIcon = L.divIcon({
-		    html: svgIcon,
-		    className: 'custom-marker highlight',
-		    iconSize: [42, 42],
-		    iconAnchor: [21, 42],
-		    popupAnchor: [0, -42]
-		});
+		 const highlightIcon = L.divIcon({
+		     html: svgIcon,
+		     className: 'custom-marker highlight',
+		     iconSize: [42, 42],
+		     iconAnchor: [21, 42],
+		     popupAnchor: [0, -42]
+		 });
 
-		marker.setIcon(highlightIcon);
-		marker.setZIndexOffset(1000);
-	    }
-	}
+		 marker.setIcon(highlightIcon);
+		 marker.setZIndexOffset(1000);
+	     }
+	 }
 
-        // Function to unhighlight a marker
-        function unhighlightMarker(cityName) {
-	    if (markers[cityName]) {
-		const marker = markers[cityName];
-		const defaultColor = '#2B83BA';  // Default color
-		const svgIcon = `
+	 function unhighlightMarker(cityIdentifier) {
+	     if (markers[cityIdentifier]) {
+		 const marker = markers[cityIdentifier];
+		 const defaultColor = '#2B83BA';
+		 const svgIcon = `
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
                 <path fill="${defaultColor}" d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
             </svg>`;
 
-		const defaultIcon = L.divIcon({
-		    html: svgIcon,
-		    className: 'custom-marker',
-		    iconSize: [32, 32],
-		    iconAnchor: [16, 32],
-		    popupAnchor: [0, -32]
-		});
+		 const defaultIcon = L.divIcon({
+		     html: svgIcon,
+		     className: 'custom-marker',
+		     iconSize: [32, 32],
+		     iconAnchor: [16, 32],
+		     popupAnchor: [0, -32]
+		 });
 
-		marker.setIcon(defaultIcon);
-		marker.setZIndexOffset(0);
-	    }
-        }
+		 marker.setIcon(defaultIcon);
+		 marker.setZIndexOffset(0);
+	     }
+	 }
 
-// Function to add marker for a city
-  function addMarker(city) {
-        const defaultColor = '#2B83BA';  // Default marker color
-        const svgIcon = `
+	 function addMarker(city) {
+	     const cityIdentifier = `${city.city}, ${city.country}`;
+	     const defaultColor = '#2B83BA';
+	     const svgIcon = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
             <path fill="${defaultColor}" d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
         </svg>`;
 
-        const icon = L.divIcon({
-            html: svgIcon,
-            className: 'custom-marker',
-            iconSize: [32, 32],
-            iconAnchor: [16, 32],
-            popupAnchor: [0, -32]
-        });
+	     const icon = L.divIcon({
+		 html: svgIcon,
+		 className: 'custom-marker',
+		 iconSize: [32, 32],
+		 iconAnchor: [16, 32],
+		 popupAnchor: [0, -32]
+	     });
 
-        const marker = L.marker([city.latitude, city.longitude], {icon})
-            .bindPopup(`${city.city}, ${city.country}`);
+	     const marker = L.marker([city.latitude, city.longitude], {icon})
+			     .bindPopup(`${city.city}, ${city.country}`);
 
-        // Set initial opacity based on whether the city is hidden
-        const initialOpacity = hiddenCities.has(city.city) ? 0.5 : 1;
-        marker.setOpacity(initialOpacity);
+	     const initialOpacity = hiddenCities.has(cityIdentifier) ? 0.5 : 1;
+	     marker.setOpacity(initialOpacity);
 
-        marker.addTo(map);
-        markers[city.city] = marker;
-  }
+	     marker.addTo(map);
+	     markers[cityIdentifier] = marker;
+	 }
+
+	 function removeMarker(cityIdentifier) {
+	     if (markers[cityIdentifier]) {
+		 map.removeLayer(markers[cityIdentifier]);
+		 delete markers[cityIdentifier];
+	     }
+	 }
 
 
+         // Function to update markers visibility
+	 function updateMarkers() {
+	     selectedCities.forEach(city => {
+		 const cityIdentifier = `${city.city}, ${city.country}`;
+		 if (hiddenCities.has(cityIdentifier)) {
+		     if (markers[cityIdentifier]) {
+			 markers[cityIdentifier].setOpacity(0.5);
+		     }
+		 } else {
+		     if (!markers[cityIdentifier]) {
+			 addMarker(city);
+		     } else {
+			 markers[cityIdentifier].setOpacity(1);
+		     }
+		 }
+	     });
+	 }
+         // Create SVG
+         const svg = d3.select("#chart")
+		       .append("svg")
+		       .attr("width", width + margin.left + margin.right)
+		       .attr("height", height + margin.top + margin.bottom)
+		       .append("g")
+		       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        // Function to remove marker for a city
-        function removeMarker(cityName) {
-            if (markers[cityName]) {
-                map.removeLayer(markers[cityName]);
-                delete markers[cityName];
-            }
-        }
+         // Create tooltip
+         const tooltip = d3.select("body").append("div")
+			   .attr("class", "tooltip")
+			   .style("opacity", 0);
 
-        // Function to update markers visibility
-        function updateMarkers() {
-            selectedCities.forEach(city => {
-                if (hiddenCities.has(city.city)) {
-                    if (markers[city.city]) {
-                        markers[city.city].setOpacity(0.5);
-                    }
-                } else {
-                    if (!markers[city.city]) {
-                        addMarker(city);
-                    } else {
-                        markers[city.city].setOpacity(1);
-                    }
-                }
-            });
-        }
+         // Setup scales
+         const x = d3.scaleTime().range([0, width]);
+         const y = d3.scaleLinear().range([height, 0]);
+         const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
-        // Create SVG
-        const svg = d3.select("#chart")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+         // Add axes
+         const xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%b"));
+         const yAxis = d3.axisLeft(y);
 
-        // Create tooltip
-        const tooltip = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-
-        // Setup scales
-        const x = d3.scaleTime().range([0, width]);
-        const y = d3.scaleLinear().range([height, 0]);
-        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-
-        // Add axes
-        const xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%b"));
-        const yAxis = d3.axisLeft(y);
-
-        svg.append("g")
+         svg.append("g")
             .attr("class", "x-axis")
             .attr("transform", `translate(0,${height})`)
             .call(xAxis);
 
-        svg.append("g")
+         svg.append("g")
             .attr("class", "y-axis")
             .call(yAxis);
 
-        // Add axis labels
-        svg.append("text")
+         // Add axis labels
+         svg.append("text")
             .attr("class", "axis-label")
             .attr("text-anchor", "middle")
             .attr("transform", `translate(${-40},${height/2})rotate(-90)`)
             .text("Daylight Duration (hours)");
 
-        svg.append("text")
+         svg.append("text")
             .attr("class", "axis-label")
             .attr("text-anchor", "middle")
             .attr("transform", `translate(${width/2},${height + 40})`)
             .text("Date");
 
-        function updateURL() {
-            const params = new URLSearchParams();
-            const visibleCities = selectedCities
-                .filter(city => !hiddenCities.has(city.city))
-                .map(city => city.city);
+	 function updateURL() {
+	     const params = new URLSearchParams();
+	     const visibleCities = selectedCities
+		 .filter(city => !hiddenCities.has(`${city.city}, ${city.country}`))
+		 .map(city => encodeURIComponent(`${city.city}, ${city.country}`));
 
-            if (visibleCities.length > 0) {
-                params.set('cities', visibleCities.join(','));
-            }
-            if (hiddenCities.size > 0) {
-                params.set('hidden', Array.from(hiddenCities).join(','));
-            }
+	     if (visibleCities.length > 0) {
+		 params.set('cities', visibleCities.join(','));
+	     }
+	     const hiddenCityParams = Array.from(hiddenCities).map(city => encodeURIComponent(city));
+	     if (hiddenCityParams.length > 0) {
+		 params.set('hidden', hiddenCityParams.join(','));
+	     }
+	     const newURL = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+	     window.history.pushState({}, '', newURL);
+	 }
 
-            const newURL = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
-            window.history.pushState({}, '', newURL);
-        }
+	 function loadCitiesFromURL() {
+	     const params = new URLSearchParams(window.location.search);
+	     const citiesParam = params.get('cities');
+	     const hiddenParam = params.get('hidden');
 
-        function loadCitiesFromURL() {
-	    const params = new URLSearchParams(window.location.search);
-            const citiesParam = params.get('cities');
-            const hiddenParam = params.get('hidden');
+	     // Clear existing selections
+	     selectedCities = [];
+	     hiddenCities.clear();
 
-            // Clear existing selections
-            selectedCities = [];
-            hiddenCities.clear();
+	     // First, load all cities from the 'cities' parameter
+	     if (citiesParam) {
+		 const cityIdentifiers = citiesParam.split(',').map(c => decodeURIComponent(c));
+		 cityIdentifiers.forEach(identifier => {
+		     const [cityName, countryName] = identifier.split(', ');
+		     const city = cities.find(c => c.city === cityName && c.country === countryName);
+		     if (city) {
+			 selectedCities.push(city);
+		     }
+		 });
+	     }
 
-            // First, load all cities from the 'cities' parameter
-            if (citiesParam) {
-		const cityNames = citiesParam.split(',');
-		cityNames.forEach(cityName => {
-                    const city = cities.find(c => c.city === cityName);
-                    if (city) {
-			selectedCities.push(city);
-                    }
-		});
-            }
+	     // Then, load any additional cities from the 'hidden' parameter
+	     if (hiddenParam) {
+		 const hiddenIdentifiers = hiddenParam.split(',').map(c => decodeURIComponent(c));
+		 hiddenIdentifiers.forEach(identifier => {
+		     // Add to hiddenCities set
+		     hiddenCities.add(identifier);
 
-            // Then, load any additional cities from the 'hidden' parameter
-            if (hiddenParam) {
-		const hiddenCityNames = hiddenParam.split(',');
-		hiddenCityNames.forEach(cityName => {
-                // First add to hiddenCities set
-                    hiddenCities.add(cityName);
+		     // Then add to selectedCities if not already there
+		     const [cityName, countryName] = identifier.split(', ');
+		     const city = cities.find(c => c.city === cityName && c.country === countryName);
+		     if (city && !selectedCities.some(c => c.city === cityName && c.country === countryName)) {
+			 selectedCities.push(city);
+		     }
+		 });
+	     }
 
-                // Then add to selectedCities if not already there
-                    const city = cities.find(c => c.city === cityName);
-                    if (city && !selectedCities.some(c => c.city === cityName)) {
-			selectedCities.push(city);
-                    }
-		});
-            }
+	     // If no cities in URL, use defaults
+	     if (selectedCities.length === 0) {
+		 const amsterdam = cities.find(c => c.city === "Amsterdam" && c.country === "Netherlands");
+		 const delhi = cities.find(c => c.city === "Delhi" && c.country === "India");
+		 if (amsterdam && delhi) {
+		     selectedCities = [amsterdam, delhi];
+		 }
+	     }
 
-            // If no cities in URL, use defaults
-            if (selectedCities.length === 0) {
-		const amsterdam = cities.find(c => c.city === "Amsterdam");
-		const delhi = cities.find(c => c.city === "Delhi");
-		if (amsterdam && delhi) {
-                    selectedCities = [amsterdam, delhi];
-		}
-            }
+	     // Remove any existing markers
+	     Object.keys(markers).forEach(cityIdentifier => {
+		 removeMarker(cityIdentifier);
+	     });
 
-            // Remove any existing markers
-            Object.keys(markers).forEach(cityName => {
-		removeMarker(cityName);
-            });
+	     // Add markers for ALL selected cities, including hidden ones
+	     selectedCities.forEach(city => {
+		 addMarker(city);
+		 const cityIdentifier = `${city.city}, ${city.country}`;
+		 if (hiddenCities.has(cityIdentifier)) {
+		     markers[cityIdentifier].setOpacity(0.5);
+		 }
+	     });
+	     updateChart();
+	 }
 
-        // Add markers for ALL selected cities, including hidden ones
-            selectedCities.forEach(city => {
-		addMarker(city);
-		if (hiddenCities.has(city.city)) {
-                    markers[city.city].setOpacity(0.5);
-		}
-            });
-	    
-            updateChart();
-        }
+         function getDaylightHours(date, lat, lng) {
+             const times = SunCalc.getTimes(date, lat, lng);
+             return (times.sunset - times.sunrise) / (1000 * 60 * 60);
+         }
 
-        function getDaylightHours(date, lat, lng) {
-            const times = SunCalc.getTimes(date, lat, lng);
-            return (times.sunset - times.sunrise) / (1000 * 60 * 60);
-        }
+	 function generateYearData(lat, lng, cityName, country) {
+             const data = [];
+             const year = new Date().getFullYear();
+             for (let month = 0; month < 12; month++) {
+                 for (let day = 1; day <= 28; day += 2) {
+                     const date = new Date(year, month, day);
+                     data.push({
+                         date: date,
+                         hours: getDaylightHours(date, lat, lng),
+                         city: cityName,
+			 country: country
+                     });
+                 }
+             }
+             return data;
+         }
 
-        function generateYearData(lat, lng, cityName) {
-            const data = [];
-            const year = new Date().getFullYear();
-            for (let month = 0; month < 12; month++) {
-                for (let day = 1; day <= 28; day += 2) {
-                    const date = new Date(year, month, day);
-                    data.push({
-                        date: date,
-                        hours: getDaylightHours(date, lat, lng),
-                        city: cityName
-                    });
-                }
-            }
-            return data;
-        }
+         function updateChart() {
+	     const startDate = new Date(new Date().getFullYear(), 0, 1);
+             const endDate = new Date(new Date().getFullYear(), 11, 31);
+             const today = new Date();
 
-        function updateChart() {
-	    const startDate = new Date(new Date().getFullYear(), 0, 1);
-            const endDate = new Date(new Date().getFullYear(), 11, 31);
-            const today = new Date();
+             x.domain([startDate, endDate]);
 
-            x.domain([startDate, endDate]);
+             const visibleCities = selectedCities.filter(city => !hiddenCities.has(city.city));
 
-            const visibleCities = selectedCities.filter(city => !hiddenCities.has(city.city));
+	     // Don't return early if there are no visible cities
+	     // This ensures the legend stays even when all cities are hidden
+             if (selectedCities.length === 0) {
+		 svg.selectAll(".line").remove();
+		 svg.selectAll(".legend").remove();
+		 svg.selectAll(".today-marker").remove();
+		 return;
+             }
 
-	    // Don't return early if there are no visible cities
-	    // This ensures the legend stays even when all cities are hidden
-            if (selectedCities.length === 0) {
-		svg.selectAll(".line").remove();
-		svg.selectAll(".legend").remove();
-		svg.selectAll(".today-marker").remove();
-		return;
-            }
+             const allHours = visibleCities.flatMap(city =>
+		 generateYearData(city.latitude, city.longitude, city.city).map(d => d.hours)
+             );
+             y.domain([d3.min(allHours) - 0.5, d3.max(allHours) + 0.5]);
 
-            const allHours = visibleCities.flatMap(city =>
-		generateYearData(city.latitude, city.longitude, city.city).map(d => d.hours)
-            );
-            y.domain([d3.min(allHours) - 0.5, d3.max(allHours) + 0.5]);
+             svg.select(".x-axis").call(xAxis);
+             svg.select(".y-axis").call(yAxis);
 
-            svg.select(".x-axis").call(xAxis);
-            svg.select(".y-axis").call(yAxis);
+             const line = d3.line()
+			    .x(d => x(d.date))
+			    .y(d => y(d.hours))
+			    .curve(d3.curveMonotoneX);
 
-            const line = d3.line()
-		  .x(d => x(d.date))
-		  .y(d => y(d.hours))
-		  .curve(d3.curveMonotoneX);
+             // Add lines
+             const lines = svg.selectAll(".line")
+			      .data(visibleCities, d => d.city);
 
-            // Add lines
-            const lines = svg.selectAll(".line")
-		  .data(visibleCities, d => d.city);
+             lines.exit().remove();
 
-            lines.exit().remove();
+             const linesEnter = lines.enter()
+				     .append("path")
+				     .attr("class", "line");
 
-            const linesEnter = lines.enter()
-		  .append("path")
-		  .attr("class", "line");
-
-            lines.merge(linesEnter)
-		.style("stroke", d => colorScale(d.city))
-		.datum(d => generateYearData(d.latitude, d.longitude, d.city))
-		.attr("d", line)
-		.on("mouseover", function(event, d) {
-                    d3.select(this)
+             lines.merge(linesEnter)
+		  .style("stroke", d => colorScale(d.city))
+		  .datum(d => generateYearData(d.latitude, d.longitude, d.city, d.country))
+		  .attr("d", line)
+		  .on("mouseover", function(event, d) {
+                      d3.select(this)
 			.style("stroke-width", 4)
 			.raise();
 
-                    tooltip.style("opacity", 1);
-                    highlightMarker(d[0].city);
-                    if (markers[d[0].city]) {
-			markers[d[0].city].openPopup();
-                    }
-		})
-		.on("mousemove", function(event, d) {
-		    const [xPos] = d3.pointer(event);
-		    const date = x.invert(xPos);
-		    const bisect = d3.bisector(d => d.date).left;
-		    const index = bisect(d, date);
-		    const dataPoint = d[index];
+                      tooltip.style("opacity", 1);
+		      highlightMarker(`${d[0].city}, ${d[0].country}`);
+		      if (markers[`${d[0].city}, ${d[0].country}`]) {
+			  markers[`${d[0].city}, ${d[0].country}`].openPopup();
+		      }
+		  })
+		  .on("mousemove", function(event, d) {
+		      const [xPos] = d3.pointer(event);
+		      const date = x.invert(xPos);
+		      const bisect = d3.bisector(d => d.date).left;
+		      const index = bisect(d, date);
+		      const dataPoint = d[index];
 
-		    tooltip
-			.html(`<strong>${dataPoint.city}</strong><br/>
-                       Date: ${dataPoint.date.toLocaleDateString()}<br/>
-                       Daylight: ${dataPoint.hours.toFixed(1)} hours`)
-			.style("left", `${event.clientX + 10}px`)
-			.style("top", `${event.clientY - 28}px`);
-		})
-		.on("mouseout", function(event, d) {
-                    d3.select(this).style("stroke-width", 2);
-                    tooltip.style("opacity", 0);
-                    unhighlightMarker(d[0].city);
-                    if (markers[d[0].city]) {
-			markers[d[0].city].closePopup();
-                    }
-		});
+		      tooltip
+			  .html(`<strong>${dataPoint.city}, ${dataPoint.country}</strong><br/>
+                   Date: ${dataPoint.date.toLocaleDateString()}<br/>
+                   Daylight: ${dataPoint.hours.toFixed(1)} hours`)
+			  .style("left", `${event.clientX + 10}px`)
+			  .style("top", `${event.clientY - 28}px`);
+		  })
+		  .on("mouseout", function(event, d) {
+                      d3.select(this).style("stroke-width", 2);
+                      tooltip.style("opacity", 0);
+		      unhighlightMarker(`${d[0].city}, ${d[0].country}`);
+		      if (markers[`${d[0].city}, ${d[0].country}`]) {
+			  markers[`${d[0].city}, ${d[0].country}`].closePopup();
+		      }
+		  });
 
-            // Update today markers
-            const markers = svg.selectAll(".today-marker")
-		  .data(visibleCities, d => d.city);
+             // Update today markers
+             const markers = svg.selectAll(".today-marker")
+				.data(visibleCities, d => d.city);
 
-            markers.exit().remove();
+             markers.exit().remove();
 
-            const markersEnter = markers.enter()
-		  .append("circle")
-		  .attr("class", "today-marker");
+             const markersEnter = markers.enter()
+					 .append("circle")
+					 .attr("class", "today-marker");
 
-            markers.merge(markersEnter)
-		.attr("cx", d => x(today))
-		.attr("cy", d => {
-                    const hours = getDaylightHours(today, d.latitude, d.longitude);
-                    return y(hours);
-		})
-		.attr("r", 5)
-		.style("stroke", d => colorScale(d.city))
-		.style("fill", d => colorScale(d.city))
-		.on("mouseover", function(event, d) {
-                    const hours = getDaylightHours(today, d.latitude, d.longitude);
-                    d3.select(this).attr("r", 6);
-                    tooltip
-			.html(`<strong>${d.city}</strong><br/>
+             markers.merge(markersEnter)
+		    .attr("cx", d => x(today))
+		    .attr("cy", d => {
+			const hours = getDaylightHours(today, d.latitude, d.longitude);
+			return y(hours);
+		    })
+		    .attr("r", 5)
+		    .style("stroke", d => colorScale(d.city))
+		    .style("fill", d => colorScale(d.city))
+		    .on("mouseover", function(event, d) {
+			const hours = getDaylightHours(today, d.latitude, d.longitude);
+			d3.select(this).attr("r", 6);
+			tooltip
+			    .html(`<strong>${d.city}, ${d.country}</strong><br/>
                            Today's daylight: ${hours.toFixed(1)} hours`)
-			.style("opacity", 1)
-			.style("left", (event.pageX + 10) + "px")
-			.style("top", (event.pageY - 10) + "px");
-                    highlightMarker(d.city);
-                    if (markers[d.city]) {
-			markers[d.city].openPopup();
-                    }
-		})
-		.on("mouseout", function(event, d) {
-                    d3.select(this).attr("r", 5);
-                    tooltip.style("opacity", 0);
-                    unhighlightMarker(d.city);
-                    if (markers[d.city]) {
-			markers[d.city].closePopup();
-                    }
-		});
-
-            // Update legend
-            const legendSpacing = 20;
-            const legendGroup = svg.selectAll(".legend")
-		  .data(selectedCities, d => d.city);
-
-            const legendEnter = legendGroup.enter()
-		  .append("g")
-		  .attr("class", "legend")
-		  .attr("transform", (d, i) => `translate(${width + 10},${i * legendSpacing})`);
-
-            legendEnter.append("line")
-		.attr("x1", 0)
-		.attr("x2", 20)
-		.attr("stroke-width", 2);
-
-            legendEnter.append("text")
-		.attr("x", 25)
-		.attr("y", 4);
-
-            legendEnter.append("text")
-		.attr("class", "legend-remove")
-		.attr("x", 120)
-		.attr("y", 4)
-		.html("&#215;");
-
-            const legend = legendEnter.merge(legendGroup);
-
-            legend
-		.classed("hidden", d => hiddenCities.has(d.city))
-		.attr("transform", (d, i) => `translate(${width + 10},${i * legendSpacing})`);
-
-            legend.select("line")
-		.style("stroke", d => colorScale(d.city));
-
-            legend.select("text:not(.legend-remove)")
-		.text(d => d.city);
-
-            legend
-		.on("click", function(event, d) {
-                    const target = event.target;
-                    if (target.classList.contains("legend-remove")) {
-			selectedCities = selectedCities.filter(city => city.city !== d.city);
-			hiddenCities.delete(d.city);
-			removeMarker(d.city);
-                    } else if (!target.classList.contains("legend-remove")) {
-			if (hiddenCities.has(d.city)) {
-                            hiddenCities.delete(d.city);
-			} else {
-                            hiddenCities.add(d.city);
+			    .style("opacity", 1)
+			    .style("left", (event.pageX + 10) + "px")
+			    .style("top", (event.pageY - 10) + "px");
+			highlightMarker(d.city);
+			if (markers[d.city]) {
+			    markers[d.city].openPopup();
 			}
-			updateMarkers();
-                    }
-                    updateChart();
-                    updateURL();
-		});
+		    })
+		    .on("mouseout", function(event, d) {
+			d3.select(this).attr("r", 5);
+			tooltip.style("opacity", 0);
+			unhighlightMarker(d.city);
+			if (markers[d.city]) {
+			    markers[d.city].closePopup();
+			}
+		    });
 
-            legendGroup.exit().remove();
-            updateURL();
-        }
+             // Update legend
+             const legendSpacing = 20;
+             const legendGroup = svg.selectAll(".legend")
+				    .data(selectedCities, d => d.city);
 
-// Setup search functionality
-const searchInput = document.getElementById('searchInput');
-const suggestionsDiv = document.getElementById('suggestions');
-let selectedIndex = -1;
-let filteredCities = [];
+             const legendEnter = legendGroup.enter()
+					    .append("g")
+					    .attr("class", "legend")
+					    .attr("transform", (d, i) => `translate(${width + 10},${i * legendSpacing})`);
 
-function selectCity(city) {
-    if (!selectedCities.find(c => c.city === city.city)) {
-        selectedCities.push(city);
-        addMarker(city);
-        updateChart();
-        updateURL();
-    }
-    searchInput.value = '';
-    suggestionsDiv.style.display = 'none';
-    selectedIndex = -1;
-    filteredCities = [];
-}
+             legendEnter.append("line")
+			.attr("x1", 0)
+			.attr("x2", 20)
+			.attr("stroke-width", 2);
 
-        function updateSuggestions() {
-            const value = searchInput.value.toLowerCase();
-            if (!value) {
-                suggestionsDiv.style.display = 'none';
-                selectedIndex = -1;
-                filteredCities = [];
-                return;
-            }
+             legendEnter.append("text")
+			.attr("x", 25)
+			.attr("y", 4);
 
-            filteredCities = cities.filter(city => 
-                !selectedCities.find(c => c.city === city.city) && (
-                    city.city.toLowerCase().includes(value) ||
-                    city.country.toLowerCase().includes(value)
-                )
-            );
+             legendEnter.append("text")
+			.attr("class", "legend-remove")
+			.attr("x", 120)
+			.attr("y", 4)
+			.html("&#215;");
 
-            suggestionsDiv.innerHTML = '';
-            filteredCities.forEach((city, index) => {
-                const div = document.createElement('div');
-                div.className = 'suggestion';
-                div.textContent = `${city.city}, ${city.country}`;
-                div.addEventListener('click', () => selectCity(city));
-                div.addEventListener('mouseover', () => {
-                    selectedIndex = index;
-                    updateSelectedSuggestion();
-                });
-                suggestionsDiv.appendChild(div);
-            });
+             const legend = legendEnter.merge(legendGroup);
 
-            suggestionsDiv.style.display = filteredCities.length ? 'block' : 'none';
-            selectedIndex = -1;
-            updateSelectedSuggestion();
-        }
+             legend
+		 .classed("hidden", d => hiddenCities.has(d.city))
+		 .attr("transform", (d, i) => `translate(${width + 10},${i * legendSpacing})`);
 
-        function updateSelectedSuggestion() {
-            const suggestions = suggestionsDiv.querySelectorAll('.suggestion');
-            suggestions.forEach((suggestion, index) => {
-                if (index === selectedIndex) {
-                    suggestion.classList.add('selected');
-                    suggestion.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-                } else {
-                    suggestion.classList.remove('selected');
-                }
-            });
-        }
+             legend.select("line")
+		   .style("stroke", d => colorScale(d.city));
 
-        searchInput.addEventListener('input', updateSuggestions);
-        searchInput.addEventListener('keydown', function(e) {
-            const suggestions = suggestionsDiv.querySelectorAll('.suggestion');
+             legend.select("text:not(.legend-remove)")
+		   .text(d => d.city);
 
-            switch(e.key) {
-                case 'ArrowDown':
-                    e.preventDefault();
-                    if (selectedIndex < filteredCities.length - 1) {
-                        selectedIndex++;
-                        updateSelectedSuggestion();
-                    }
-                    break;
+	     legend
+		 .on("click", function(event, d) {
+		     const target = event.target;
+		     const cityIdentifier = `${d.city}, ${d.country}`;
 
-                case 'ArrowUp':
-                    e.preventDefault();
-                    if (selectedIndex > 0) {
-                        selectedIndex--;
-                        updateSelectedSuggestion();
-                    }
-                    break;
+		     if (target.classList.contains("legend-remove")) {
+			 // Remove only this specific city+country combination
+			 selectedCities = selectedCities.filter(city =>
+			     `${city.city}, ${city.country}` !== cityIdentifier
+			 );
+			 hiddenCities.delete(cityIdentifier);  // Remove from hidden set if it was there
+			 removeMarker(cityIdentifier);  // Remove the marker
+		     } else if (!target.classList.contains("legend-remove")) {
+			 // Toggle visibility
+			 if (hiddenCities.has(cityIdentifier)) {
+			     hiddenCities.delete(cityIdentifier);
+			 } else {
+			     hiddenCities.add(cityIdentifier);
+			 }
+			 updateMarkers();
+		     }
+		     updateChart();
+		     updateURL();
+		 });
+             legendGroup.exit().remove();
+             updateURL();
+         }
 
-                case 'Enter':
-                    if (selectedIndex >= 0 && selectedIndex < filteredCities.length) {
-                        selectCity(filteredCities[selectedIndex]);
-                    }
-                    break;
+	 // Setup search functionality
+	 const searchInput = document.getElementById('searchInput');
+	 const suggestionsDiv = document.getElementById('suggestions');
+	 let selectedIndex = -1;
+	 let filteredCities = [];
 
-                case 'Escape':
-                    suggestionsDiv.style.display = 'none';
-                    selectedIndex = -1;
-                    break;
-            }
-        });
+	 function selectCity(city) {
+	     // Create a unique identifier combining city and country
+	     const cityIdentifier = `${city.city}, ${city.country}`;
 
-        // Hide suggestions when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-container')) {
-                suggestionsDiv.style.display = 'none';
-                selectedIndex = -1;
-            }
-        });
+	     // Check if this specific city (including country) is already selected
+	     if (!selectedCities.find(c => `${c.city}, ${c.country}` === cityIdentifier)) {
+		 selectedCities.push(city);
+		 addMarker(city);
+		 updateChart();
+		 updateURL();
+	     }
+	     searchInput.value = '';
+	     suggestionsDiv.style.display = 'none';
+	     selectedIndex = -1;
+	     filteredCities = [];
+	 }
 
-        // Initialize map and load data
-        initMap();
+	 function updateSuggestions() {
+	     const value = searchInput.value.toLowerCase();
+	     if (!value) {
+		 suggestionsDiv.style.display = 'none';
+		 selectedIndex = -1;
+		 filteredCities = [];
+		 return;
+	     }
 
-        // Load data and initialize
-        d3.csv('cities.csv').then(data => {
-            cities = data.map(d => ({
-                ...d,
-                rank: +d.rank,
-                population: +d.population,
-                latitude: +d.latitude,
-                longitude: +d.longitude
-            }));
+	     // Filter cities, checking both city and country for uniqueness
+	     filteredCities = cities.filter(city => {
+		 const cityIdentifier = `${city.city}, ${city.country}`;
+		 return !selectedCities.find(c => `${c.city}, ${c.country}` === cityIdentifier) && (
+		     city.city.toLowerCase().includes(value) ||
+		     city.country.toLowerCase().includes(value)
+		 );
+	     });
 
-            // Add Amsterdam manually since it's not in top 100
-            cities.push({
-                city: "Amsterdam",
-                country: "Netherlands",
-                latitude: 52.3676,
-                longitude: 4.9041,
-                timezone: "Europe/Amsterdam"
-            });
+	     suggestionsDiv.innerHTML = '';
+	     filteredCities.forEach((city, index) => {
+		 const div = document.createElement('div');
+		 div.className = 'suggestion';
+		 div.textContent = `${city.city}, ${city.country}`;
+		 div.addEventListener('click', () => selectCity(city));
+		 div.addEventListener('mouseover', () => {
+		     selectedIndex = index;
+		     updateSelectedSuggestion();
+		 });
+		 suggestionsDiv.appendChild(div);
+	     });
 
-            loadCitiesFromURL();
+	     suggestionsDiv.style.display = filteredCities.length ? 'block' : 'none';
+	     selectedIndex = -1;
+	     updateSelectedSuggestion();
+	 }
+         function updateSelectedSuggestion() {
+             const suggestions = suggestionsDiv.querySelectorAll('.suggestion');
+             suggestions.forEach((suggestion, index) => {
+                 if (index === selectedIndex) {
+                     suggestion.classList.add('selected');
+                     suggestion.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                 } else {
+                     suggestion.classList.remove('selected');
+                 }
+             });
+         }
 
-            // Update UI
-            document.getElementById('loading').style.display = 'none';
-        }).catch(error => {
-            console.error('Error loading cities:', error);
-            document.getElementById('loading').innerHTML = 'Error loading cities data. Please refresh the page.';
-        });
-    </script>
-</body>
-</html>		  
+         searchInput.addEventListener('input', updateSuggestions);
+         searchInput.addEventListener('keydown', function(e) {
+             const suggestions = suggestionsDiv.querySelectorAll('.suggestion');
+
+             switch(e.key) {
+                 case 'ArrowDown':
+                     e.preventDefault();
+                     if (selectedIndex < filteredCities.length - 1) {
+                         selectedIndex++;
+                         updateSelectedSuggestion();
+                     }
+                     break;
+
+                 case 'ArrowUp':
+                     e.preventDefault();
+                     if (selectedIndex > 0) {
+                         selectedIndex--;
+                         updateSelectedSuggestion();
+                     }
+                     break;
+
+                 case 'Enter':
+                     if (selectedIndex >= 0 && selectedIndex < filteredCities.length) {
+                         selectCity(filteredCities[selectedIndex]);
+                     }
+                     break;
+
+                 case 'Escape':
+                     suggestionsDiv.style.display = 'none';
+                     selectedIndex = -1;
+                     break;
+             }
+         });
+
+         // Hide suggestions when clicking outside
+         document.addEventListener('click', function(e) {
+             if (!e.target.closest('.search-container')) {
+                 suggestionsDiv.style.display = 'none';
+                 selectedIndex = -1;
+             }
+         });
+
+         // Initialize map and load data
+         initMap();
+
+         // Load data and initialize
+         d3.csv('cities.csv').then(data => {
+             cities = data.map(d => ({
+                 ...d,
+                 rank: +d.rank,
+                 population: +d.population,
+                 latitude: +d.latitude,
+                 longitude: +d.longitude
+             }));
+
+             loadCitiesFromURL();
+
+             // Update UI
+             document.getElementById('loading').style.display = 'none';
+         }).catch(error => {
+             console.error('Error loading cities:', error);
+             document.getElementById('loading').innerHTML = 'Error loading cities data. Please refresh the page.';
+         });
+	</script>
+    </body>
+</html>
