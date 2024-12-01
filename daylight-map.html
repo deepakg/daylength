@@ -229,6 +229,7 @@
 	    <div class="map-container" id="map"></div>
 	    <div class="chart-container" id="chart"></div>
 	</div>
+
 	<script>
 	 // Global variables
 	 let cities = [];
@@ -817,7 +818,7 @@
          }).catch(error => {
              console.error('Error loading cities:', error);
              document.getElementById('loading').innerHTML = 'Error loading cities data. Please refresh the page.';
-         });
+	 });
 	</script>
     </body>
 </html>
